@@ -14,7 +14,15 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    - name: Find and combine M3U files
+    - name: List M3U files
+      run: |
+        find . -name "*.m3u"
+
+    - name: Print M3U file contents
+      run: |
+        find . -name "*.m3u" -exec cat {} +
+
+    - name: Combine M3U files
       run: |
         find . -name "*.m3u" -exec cat {} + > combined.m3u8
 
